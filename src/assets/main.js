@@ -6,20 +6,20 @@ function guess() {
   if(answer.value == '' || attempt.value == ''){
     setHiddenFields();
   }
-}
 
-  if(!validateInput(input.value)){
-    return;
-  }
-  attempt.value++;
-  if(getResults(input.value)){
-    setMessage('You Win! :)');
-    showAnswer(true);
-    showReplay();
-  } else if (attempt.value >= 10){
-    setMessage('You Lose! :()');
-  } else {
-    setMessage('Incorrect, try again.');
+
+if(!validateInput(input.value)){
+  return;
+}
+attempt.value++;
+if(getResults(input.value)){
+  setMessage('You Win! :)');
+  showAnswer(true);
+  showReplay();
+} else if (attempt.value >= 10){
+  setMessage('You Lose! :()');
+} else {
+  setMessage('Incorrect, try again.');
   }
 }
 
@@ -42,8 +42,8 @@ function getResults(input){
   if(input == answer.value){
     return true;
   } else {
-  return false;
-}
+    return false;
+  }
 }
 
 
