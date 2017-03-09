@@ -2,28 +2,28 @@ let answer = document.getElementById('answer');
 let attempt = document.getElementById('attempt');
 
 function guess() {
-    let input = document.getElementById('user-guess');
-    //add functionality to guess function here
-    if(answer.value == '' || attempt.value == ''){
-      setHiddenFields();
-    }
+  let input = document.getElementById('user-guess');
+  //add functionality to guess function here
+  if(answer.value == '' || attempt.value == ''){
+    setHiddenFields();
+  }
 
-   if(!validateInput(input.value)){
-      return(false);
-    }
-    attempt.value++;
+  if(!validateInput(input.value)){
+    return(false);
+  }
+  attempt.value++;
 
-   if(getResults(input.value)) {
-      setMessage('You Win :)');
-      showAnswer(true);
-      showReplay();
-    } else if(attempt.value >= 10){
-      setMessage('You Lose! :(');
-      showAnswer(false);
-      showReplay();
-    }else {
-      setMessage('Incorrect, try again.');
-    }
+  if(getResults(input.value)) {
+    setMessage('You Win :)');
+    showAnswer(true);
+    showReplay();
+  } else if(attempt.value >= 10){
+    setMessage('You Lose! :(');
+    showAnswer(false);
+    showReplay();
+  }else {
+    setMessage('Incorrect, try again.');
+  }
 }
 
 function getResults(input){
@@ -38,33 +38,33 @@ function getResults(input){
     }
   }
 
- html += '</div></div>';
+  html += '</div></div>';
   document.getElementById('results').innerHTML += html;
 
- if(input == answer.value){
+  if(input == answer.value){
     return true;
   } else{
-  return false;
+    return false;
   }
 }
 
 //implement new functions here
 function setHiddenFields(){
-    answer.value = Math.floor(Math.random() * 10000).toString();
-    while(answer.value.length < 4){
-      answer.value = "0" + answer.value;
-    }
-    attempt.value = "0";
+  answer.value = Math.floor(Math.random() * 10000).toString();
+  while(answer.value.length < 4){
+    answer.value = "0" + answer.value;
+  }
+  attempt.value = "0";
 }
 
 function setMessage(message){
   document.getElementById('message').innerHTML = message;
 }
 
-function showAnswer(succes) {
+function showAnswer(success) {
   let code = document.getElementById('code');
   if(success) {
-    code.className += ' succes';
+    code.className += ' success';
   }else {
     code.className += ' failure';
   }
@@ -81,6 +81,6 @@ function validateInput (input) {
     setMessage('Guesses mus be exactly 4 characters long.');
     return false;
   }else {
-  return true;
+    return true;
   }
 }
