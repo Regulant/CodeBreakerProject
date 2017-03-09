@@ -23,8 +23,6 @@ if(getResults(input.value)){
   }
 }
 
-//implement new functions here
-
 function getResults(input){
   let html = '<div class="row"><span class="col-md-6">' + input + '</span><div class="col-md-6">';
   for (i = 0; i < input.length; i++){
@@ -46,7 +44,7 @@ function getResults(input){
   }
 }
 
-
+//implement new functions here
 function setHiddenFields() {
   answer.value = Math.floor(Math.random() * 10000).toString;
   while(answer.value.lentgh < 4){
