@@ -77,8 +77,8 @@ function showReplay(){
 }
 
 function validateInput (input) {
-  if(input.length > 4){
-    setMessage('Guesses mus be exactly 4 characters long.');
+  if(input.length > 4 || input.length < 4){
+    setMessage('Guesses must be exactly 4 characters long.');
     return false;
   }else {
     return true;
